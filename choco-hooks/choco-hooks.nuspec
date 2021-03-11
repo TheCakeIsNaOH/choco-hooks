@@ -6,41 +6,23 @@
     <version>0.1.0</version>
     <packageSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks/choco-hooks</packageSourceUrl>
     <owners>TheCakeIsNaOH</owners>
-    <title>(Unofficial) Chocolatey Hooks</title>
+    <title>(Unofficial) Choco Hooks</title>
     <authors>TheCakeIsNaOH</authors>
     <projectUrl>https://github.com/TheCakeIsNaOH/choco-hooks</projectUrl>
     <!--<iconUrl>http://cdn.rawgit.com/__REPLACE_YOUR_REPO__/master/icons/choco-hooks.png</iconUrl>-->
-    <!-- <copyright>Year Software Vendor</copyright> -->
+    <copyright>2021 TheCakeIsNaOH</copyright>
     <licenseUrl>https://github.com/TheCakeIsNaOH/choco-hooks/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks</projectSourceUrl>
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
-    <!--<mailingListUrl></mailingListUrl>-->
     <bugTrackerUrl>https://github.com/TheCakeIsNaOH/choco-hooks/issues</bugTrackerUrl>
     <tags>Chocolatey Hook Preinst Postinst Userscript</tags>
-    <summary>Modification for chocolatey that adds in hooks for userscripts</summary>
-    <description>__REPLACE__MarkDown_Okay </description>
+    <summary>Modification for Chocolatey that adds in hooks for userscripts</summary>
+    <description>__REPLACE_OR_REMOVE__MarkDown_Okay</description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
-    <!-- =============================== -->      
-
-    <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
-    <!--<dependencies>
-      <dependency id="" version="__MINIMUM_VERSION__" />
-      <dependency id="" version="[__EXACT_VERSION__]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_INCLUSIVE]" />
-      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_EXCLUSIVE)" />
-      <dependency id="" />
-      <dependency id="chocolatey-core.extension" version="1.1.0" />
-    </dependencies>-->
-    <!-- chocolatey-core.extension - https://chocolatey.org/packages/chocolatey-core.extension
-         - You want to use Get-UninstallRegistryKey on less than 0.9.10 (in chocolateyUninstall.ps1)
-         - You want to use Get-PackageParameters and on less than 0.11.0
-         - You want to take advantage of other functions in the core community maintainer's team extension package
-    -->
-
-    <!--<provides>NOT YET IMPLEMENTED</provides>-->
-    <!--<conflicts>NOT YET IMPLEMENTED</conflicts>-->
-    <!--<replaces>NOT YET IMPLEMENTED</replaces>-->
+    <dependencies>
+      <dependency id="chocolatey" version="0.10.15" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

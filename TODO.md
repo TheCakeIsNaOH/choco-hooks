@@ -1,15 +1,17 @@
 # TODO
 
 ## Install script
-- check $env:CHOCOLATEY_VERSION
-- check that chocolatey itself is pinned (.chocolatey ?)
-- Write red warning on install if pro edition
-- Throw on non-pro?
+- Self-pin chocolatey?
+- Better method to check if it is pinned
+
+#Package
+- Fill in description
 
 # Script runner
-- Write big log warning 
 - check $env:CHOCOLATEY_VERSION?
 - check that chocolatey itself is pinned (.chocolatey ?)?
+- mechanism for install of .chook packages
+- mechanism for 
 
 ## Release
 - Use MyGet as feed? Other software?
@@ -19,3 +21,4 @@
 - Version with $env:chocolateyPackageVersion
 - Should be able to use Get-PackageParameters
 - Can see install script with $packageScript
+- .chook how it works
