@@ -2,7 +2,7 @@
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>choco-hooks</id>
+    <id>choco-hooks.extension</id>
     <version>0.1.0</version>
     <packageSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks/choco-hooks</packageSourceUrl>
     <owners>TheCakeIsNaOH</owners>
@@ -27,6 +27,7 @@
   <files>
     <file src="tools\**" target="tools" />
     <file src="legal\**" target="legal" />
+    <file src="extensions\**" target="extensions" />
     <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
   </files>
 </package>

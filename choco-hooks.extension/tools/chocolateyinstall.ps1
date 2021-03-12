@@ -47,3 +47,5 @@ Copy-Item -Path $scriptRunnerFile -Destination $scriptRunnerBackup -Force
 
 Write-Host -ForegroundColor green "Copying new script runner file"
 Copy-Item -Path $newScriptRunnerFile -Destination $scriptRunnerFile -Force
+
+#TODO - create chook folder structure

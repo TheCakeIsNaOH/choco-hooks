@@ -14,13 +14,27 @@ if ($env:ChocolateyEnvironmentVerbose -eq 'true') { $global:VerbosePreference = 
 
 Write-Debug '---------------------------Script Execution---------------------------'
 Write-Debug "Running 'ChocolateyScriptRunner' for $($env:packageName) v$($env:packageVersion) with packageScript `'$packageScript`', packageFolder:`'$($env:packageFolder)`', installArguments: `'$installArguments`', packageParameters: `'$packageParameters`',"
-Write-Debug "NOTICE NOTICE NOTICE"
+Write-Debug "NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE"
 Write-Debug "MODIFIED CHOCOLATEY SCRIPT RUNNER - TO CHOCOLATEY SUPPORT: DO NOT PROVIDE SUPPORT FOR THIS"
 Write-Debug "Report issues to https://github.com/TheCakeIsNaOH/choco-hooks/"
 
-Write-Host "You are running choco-hooks"
+Write-Host -ForegroundColor Magenta "~~ You are running choco-hooks ~~"
 
 $scriptType = (Split-Path -Leaf $packageScript)
+
+if ($scriptType -ieq "chocolateyInstall.ps1") {
+    #TODO run pre-inst scripts
+} elseif ($scriptType -ieq "chocolateyBeforeModify.ps1") {
+    #TODO run pre beforemodify scripts
+} elseif ($scriptType -ieq "chocolateyUninstall.ps1") {
+    #TODO run pre uninst scripts
+}
+
+#TODO run global preinst scripts
+
+if ($env:chocolateyPackageName -like "*.chook") {
+    #TODO - copy chook files here
+}
 
 ## Set the culture to invariant
 $currentThread = [System.Threading.Thread]::CurrentThread;
