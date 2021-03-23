@@ -31,12 +31,17 @@ if (($env:chocolateyPackageName -like "*.chook") -or ($env:chocolateyPackageName
     }
 }
 
-$hookPreScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType
+if ((Get-PackageParameters)["SKIPHOOKS"])
+    $skipHooks = $true
+    Write-Host -ForegroundColor green "Pre Hooks skipped by /SKIPHOOKS package parameter"
+} else {
+    $hookPreScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType
 
-$hookPreScripts | ForEach-Object {
-    Write-Host -ForegroundColor Magenta "Running hook script $_"
-    #& "$_"
-    Write-Debug "Finished running hook script $_"
+    $hookPreScripts | ForEach-Object {
+        Write-Host -ForegroundColor Magenta "Running hook script $_"
+        & "$_"
+        Write-Debug "Finished running hook script $_"
+    }
 }
 #choco-hooks section ends -------------------------------------------------------------
 
@@ -102,12 +107,16 @@ if ($exitCode -ne $null -and $exitCode -ne '' -and $exitCode -ne 0) {
 
 
 #choco-hooks section starts------------------------------------------------------------
-$hookPostScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType -isPost
+if ($skipHooks) {
+    Write-Host -ForegroundColor green "Post hooks skipped by /SKIPHOOKS package parameter"
+} else {
+    $hookPostScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType -isPost
 
-$hookPostScripts | ForEach-Object {
-    Write-Host -ForegroundColor Magenta "Running hook script $_"
-    #& "$_"
-    Write-Debug "Finished running hook script $_"
+    $hookPostScripts | ForEach-Object {
+        Write-Host -ForegroundColor Magenta "Running hook script $_"
+        & "$_"
+        Write-Debug "Finished running hook script $_"
+    }
 }
 #choco-hooks section ends -------------------------------------------------------------
 
