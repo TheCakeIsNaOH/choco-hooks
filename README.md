@@ -77,7 +77,7 @@ I would suggest naming starting with an underscore (`_`), to make sure that it d
 
 The main limitation of this is that hook scripts will not be triggered if a package does not have scripts.
 
-## What not implement this directly in choco
+## Why not implement this directly in choco
 
 In the [choco feature request](https://github.com/chocolatey/choco/issues/1185), it is unclear if hooks are a feature that would go in open source Choco, or in the licensed extension. 
 There has been no clarification on that point, even after asking. 
@@ -88,3 +88,8 @@ Therefore, until there is clarification on where hooks would end up in choco, it
 Secondarily, since choco 0.10.15 released in early 2019, there has been not very much work done on FOSS choco, as Chocolatey committers are working on things for licensed editions instead. 
 From what I can tell from public statements, the next major activity on FOSS choco might start at the end of 2021. I want hooks before that.
 
+### Why not upload the packages to the Chocolatey Community Repository
+
+First, this is modifying the choco script runner, which I know for a fact would not be allowed through moderation unless it was given the blessing of a Chocolatey admin.
+
+Second, since hooks might be a licensed feature, this might not be allowed on the community repository, since packages that implement licensed features are generally not allowed [ref](https://web.archive.org/web/20210323181837/https://chocolatey.org/packages/choco-cleaner/0.0.1)
