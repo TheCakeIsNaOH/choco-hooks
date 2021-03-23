@@ -14,27 +14,31 @@ if ($env:ChocolateyEnvironmentVerbose -eq 'true') { $global:VerbosePreference = 
 
 Write-Debug '---------------------------Script Execution---------------------------'
 Write-Debug "Running 'ChocolateyScriptRunner' for $($env:packageName) v$($env:packageVersion) with packageScript `'$packageScript`', packageFolder:`'$($env:packageFolder)`', installArguments: `'$installArguments`', packageParameters: `'$packageParameters`',"
-Write-Debug "NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE"
-Write-Debug "MODIFIED CHOCOLATEY SCRIPT RUNNER - TO CHOCOLATEY SUPPORT: DO NOT PROVIDE SUPPORT FOR THIS"
+
+#choco-hooks section starts------------------------------------------------------------
+Write-Debug "MODIFIED CHOCOLATEY SCRIPT RUNNER - CHOCOLATEY SUPPORT: DO NOT PROVIDE SUPPORT FOR THIS"
 Write-Debug "Report issues to https://github.com/TheCakeIsNaOH/choco-hooks/"
 
 Write-Host -ForegroundColor Magenta "~~ You are running choco-hooks ~~"
 
 $scriptType = (Split-Path -Leaf $packageScript)
 
-if ($scriptType -ieq "chocolateyInstall.ps1") {
-    #TODO run pre-inst scripts
-} elseif ($scriptType -ieq "chocolateyBeforeModify.ps1") {
-    #TODO run pre beforemodify scripts
-} elseif ($scriptType -ieq "chocolateyUninstall.ps1") {
-    #TODO run pre uninst scripts
+if (($env:chocolateyPackageName -like "*.chook") -or ($env:chocolateyPackageName -like "*.chook.extension")) {
+    if ($scriptType -ieq "chocolateyInstall.ps1") {
+        #Install-ChookPackage
+    } elseif ("chocolateyUninstall.ps1","chocolateyBeforeModify.ps1" -icontains $scriptType) {
+        #Uninstall-ChookPackage
+    }
 }
 
-#TODO run global preinst scripts
+$hookPreScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType
 
-if ($env:chocolateyPackageName -like "*.chook") {
-    #TODO - copy chook files here
+$hookPreScripts | ForEach-Object {
+    Write-Host -ForegroundColor Magenta "Running hook script $_"
+    #& "$_"
+    Write-Debug "Finished running hook script $_"
 }
+#choco-hooks section ends -------------------------------------------------------------
 
 ## Set the culture to invariant
 $currentThread = [System.Threading.Thread]::CurrentThread;
@@ -96,7 +100,18 @@ if ($exitCode -ne $null -and $exitCode -ne '' -and $exitCode -ne 0) {
   Set-PowerShellExitCode $exitCode
 }
 
+
+#choco-hooks section starts------------------------------------------------------------
+$hookPostScripts = Get-ChookScripts -packageID $env:chocolateyPackageName -scriptType $scriptType -isPost
+
+$hookPostScripts | ForEach-Object {
+    Write-Host -ForegroundColor Magenta "Running hook script $_"
+    #& "$_"
+    Write-Debug "Finished running hook script $_"
+}
+#choco-hooks section ends -------------------------------------------------------------
+
+
 Write-Debug '----------------------------------------------------------------------'
-#temps
 
 Exit $exitCode
