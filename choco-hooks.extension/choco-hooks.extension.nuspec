@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>choco-hooks.extension</id>
-    <version>0.1.0</version>
+    <version>0.1.0.20210223</version>
     <packageSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks/choco-hooks</packageSourceUrl>
     <owners>TheCakeIsNaOH</owners>
     <title>(Unofficial) Choco Hooks</title>

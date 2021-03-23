@@ -29,7 +29,8 @@ It is an implementation of [this choco feature request](https://github.com/choco
 
 #### Install from <TODO>
 
-**TODO** Add instructions for install for repository
+1. Add the myget repository: `choco source add -n choco-hooks -s https://www.myget.org/F/choco-hooks/api/v2`
+2. Install: `choco install choco-hooks.extension`
 
 ## Uninstallation
 
