@@ -36,16 +36,22 @@ if (!(Test-Path $pinFile)) {
     Throw "Chocolatey does not appear to be pinned, exiting"
 }
 
-#TODO - actual copying of file here
 $helpersDir = Join-Path $env:ChocolateyInstall "helpers"
 $scriptRunnerFile = Join-Path $helpersDir "chocolateyScriptRunner.ps1"
 $scriptRunnerBackup = Join-Path $helpersDir "chocolateyScriptRunner.ps1.backup"
 $newScriptRunnerFile = Join-Path $toolsDir "chocolateyScriptRunner.ps1"
 
-Write-Host -ForegroundColor green "Backing up original script runner to $scriptRunnerBackup"
-Copy-Item -Path $scriptRunnerFile -Destination $scriptRunnerBackup -Force
+if (Test-Path $scriptRunnerBackup) {
+    Write-Host -ForegroundColor green "Found backup for script runner at $scriptRunnerBackup"
+} else {
+    Write-Host -ForegroundColor green "Backing up original script runner to $scriptRunnerBackup"
+    Copy-Item -Path $scriptRunnerFile -Destination $scriptRunnerBackup -Force
+}
 
 Write-Host -ForegroundColor green "Copying new script runner file"
 Copy-Item -Path $newScriptRunnerFile -Destination $scriptRunnerFile -Force
 
-#TODO - create chook folder structure
+$chookDir = Join-Path $env:ChocolateyInstall 'choco-hooks'
+if (!(Test-Path $chookDir)) {
+    $null = New-Item -ItemType Directory -Path $chookDir
+}
