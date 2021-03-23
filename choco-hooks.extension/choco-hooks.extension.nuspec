@@ -17,8 +17,10 @@
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
     <bugTrackerUrl>https://github.com/TheCakeIsNaOH/choco-hooks/issues</bugTrackerUrl>
     <tags>Chocolatey Hook Preinst Postinst Userscript</tags>
-    <summary>Modification for Chocolatey that adds in hooks for userscripts</summary>
-    <description>__REPLACE_OR_REMOVE__MarkDown_Okay</description>
+    <summary>Modification for Chocolatey that adds in the ability to run hook scripts</summary>
+    <description>Modification for Chocolatey that adds in the ability to run hook scripts
+    
+See the readme for more information: https://github.com/TheCakeIsNaOH/choco-hooks/blob/main/README.md</description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
     <dependencies>
       <dependency id="chocolatey" version="0.10.15" />
