@@ -25,9 +25,9 @@ $scriptType = (Split-Path -Leaf $packageScript)
 
 if (($env:chocolateyPackageName -like "*.chook") -or ($env:chocolateyPackageName -like "*.chook.extension")) {
     if ($scriptType -ieq "chocolateyInstall.ps1") {
-        #Install-ChookPackage
+        Install-ChookPackage
     } elseif ("chocolateyUninstall.ps1","chocolateyBeforeModify.ps1" -icontains $scriptType) {
-        #Uninstall-ChookPackage
+        Uninstall-ChookPackage
     }
 }
 
