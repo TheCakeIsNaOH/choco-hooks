@@ -31,7 +31,7 @@ function Install-ChookPackage {
     param()
 
     $chookDir = Join-Path $env:ChocolateyInstall 'choco-hooks'
-    $moveToDir = Join-Path $chookDir (($env:ChocolateyPackageName).Trim(".extension").Trim(".chook"))
+    $moveToDir = Join-Path $chookDir (($env:ChocolateyPackageName).TrimEnd(".extension").TrimEnd(".chook"))
     $moveFromDir = Join-Path $env:ChocolateyPackageFolder 'hook'
     
     if (!(Test-Path $moveFromDir)) {
@@ -52,7 +52,7 @@ function Uninstall-ChookPackage {
     param()
 
     $chookDir = Join-Path $env:ChocolateyInstall 'choco-hooks'
-    $moveToDir = Join-Path $chookDir (($env:ChocolateyPackageName).Trim(".extension").Trim(".chook"))
+    $moveToDir = Join-Path $chookDir (($env:ChocolateyPackageName).TrimEnd(".extension").TrimEnd(".chook"))
 
     if (Test-Path $moveToDir) {
         Write-Host -ForegroundColor green "Removing folder from choco-hooks"
