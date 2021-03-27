@@ -56,7 +56,7 @@ function Uninstall-ChookPackage {
 
     if (Test-Path $moveToDir) {
         Write-Host -ForegroundColor green "Removing folder from choco-hooks"
-        Remove-Item -Ea 0 -Path $moveToDir
+        Remove-Item -Ea 0 -Recurse -Path $moveToDir
     }
 }
 
