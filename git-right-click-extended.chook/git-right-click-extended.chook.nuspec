@@ -27,6 +27,7 @@ It resets every time git upgrades, so this runs every time git installs</descrip
     </dependencies>
   </metadata>
   <files>
+    <file src="tools\**" target="tools" />
     <file src="hook\**" target="hook" />
     <file src="legal\**" target="legal" />
     <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
