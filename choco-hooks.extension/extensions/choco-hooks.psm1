@@ -34,7 +34,7 @@ function Install-ChookPackage {
     $moveToDir = Join-Path $chookDir (($env:ChocolateyPackageName).Trim(".extension").Trim(".chook"))
     $moveFromDir = Join-Path $env:ChocolateyPackageFolder 'hook'
     
-    if (!(Test-Path $moveToDir)) {
+    if (!(Test-Path $moveFromDir)) {
         Write-Host -ForegroundColor green "No hook directory found, skipping copy to choco-hooks"
         return
     }    
@@ -44,7 +44,7 @@ function Install-ChookPackage {
     }
 
     Write-Host -ForegroundColor green "Moving files from hook directory to choco-hooks"
-    Get-Childitem -Recuse -Path $moveFromDir | Move-Item -Destination $moveToDir
+    Get-Childitem -Recurse -Path $moveFromDir | Move-Item -Destination $moveToDir
 }
 
 function Uninstall-ChookPackage {
