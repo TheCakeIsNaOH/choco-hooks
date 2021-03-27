@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>template.chook</id>
+    <version>0.1.0</version>
+    <packageSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks/choco-hooks</packageSourceUrl>
+    <owners>TheCakeIsNaOH</owners>
+    <title>template choco hook script</title>
+    <authors>TheCakeIsNaOH</authors>
+    <projectUrl>https://github.com/TheCakeIsNaOH/choco-hooks</projectUrl>
+    <!--<iconUrl>http://cdn.rawgit.com/__REPLACE_YOUR_REPO__/master/icons/choco-hooks.png</iconUrl>-->
+    <copyright>2021 TheCakeIsNaOH</copyright>
+    <licenseUrl>https://github.com/TheCakeIsNaOH/choco-hooks/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks</projectSourceUrl>
+    <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
+    <bugTrackerUrl>https://github.com/TheCakeIsNaOH/choco-hooks/issues</bugTrackerUrl>
+    <tags>Chocolatey Hook Preinst Postinst Userscript</tags>
+    <summary>__REPLACE__</summary>
+    <description>__REPLACE__MarkDown_Okay </description>
+    <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
+    <dependencies>
+      <dependency id="choco-hooks.extension" version="0.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="hook\**" target="hook" />
+    <file src="legal\**" target="legal" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
+</package>
