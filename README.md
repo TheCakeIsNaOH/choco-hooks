@@ -80,14 +80,14 @@ The main limitation of this is that hook scripts will not be triggered if a pack
 
 ## Why not implement this directly in choco
 
-In the [choco feature request](https://github.com/chocolatey/choco/issues/1185), it is unclear if hooks are a feature that would go in open source Choco, or in the licensed extension. 
-There has been no clarification on that point, even after asking. 
+In the [choco feature request](https://github.com/chocolatey/choco/issues/1185), is is undecided by Chocolatey if hooks are a feature that would go in open source Choco, or in the licensed extension. 
+Or if possibly hooks would be a feature that would have gimped functionality in open source, but more features in licenced.
 
 From what I can tell from [public statements](https://web.archive.org/web/20210323165032/https://github.com/chocolatey/choco/issues/2139#issuecomment-713112049), it is the current policy that pull requests which implement features from the licensed version of Chocolatey are automatically closed, and will not be accepted.
-Therefore, until there is clarification on where hooks would end up in choco, it is pointless to work on implementing this in upstream choco.
+Therefore, until there is decision on where hooks would end up in choco, it is pointless to work on implementing this in upstream choco.
 
 Secondarily, since choco 0.10.15 released in early 2019, there has been not very much work done on FOSS choco, as Chocolatey committers are working on things for licensed editions instead. 
-From what I can tell from public statements, the next major activity on FOSS choco might start at the end of 2021. I want hooks before that.
+From what I can tell from public statements, the next major activity on open source choco is planned to start at the end of 2021. I want hooks before that.
 
 ### Why not upload the packages to the Chocolatey Community Repository
 
