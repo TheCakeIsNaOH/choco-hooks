@@ -19,7 +19,7 @@ It is an implementation of [this choco feature request](https://github.com/choco
 ## Installation
 
 #### Prerequisites:
-1. Make sure you are running choco `0.10.15` or `0.10.16-beta-20200806`. 
+1. Make sure you are running choco `0.10.15`,`0.10.16-beta-20200806`, or `0.11.0`. 
 2. Run `choco pin add -n chocolatey`, which prevents choco from upgrading until you are ready.
 
 #### Install from git
