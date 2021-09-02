@@ -16,13 +16,13 @@ if ($LicencedChocoTypes -contains $env:ChocolateyLicenseType) {
 
 #Only support specific choco versions that have an unchanged script runner and are tested
 #This could be backported to 0.10.15-beta and 0.10.14 as the script runner is the same in those version as well
-$supportedChocoVersions = "0.10.15.0","0.10.16-beta-20200806","0.11.0.0"
+$supportedChocoVersions = "0.10.15.0","0.10.16-beta-20200806","0.11.0.0","0.11.1.0"
 if ($supportedChocoVersions -notcontains $env:CHOCOLATEY_VERSION) {
     Throw "Unsupported version of chocolatey: $($env:CHOCOLATEY_VERSION)"
 }
 
 $configDir = Join-Path $env:ChocolateyInstall ".chocolatey"
-$versionConfigDir = Get-ChildItem $configDir -Filter "chocolatey.*" | Where-Object { $_.name -match "chocolatey.\d" } | Select-Object -First 1 -ExpandProperty fullname
+$versionConfigDir = Get-ChildItem $configDir -Filter "chocolatey.*" | Where-Object { $_.name -match "chocolatey.\d" } | Select-Object -Last 1 -ExpandProperty fullname
 $pinFile = Join-Path $versionConfigDir '.pin'
 Write-Debug "Pin file location found: $pinFile"
 
