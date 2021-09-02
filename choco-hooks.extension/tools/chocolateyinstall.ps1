@@ -2,13 +2,10 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 #License types yanked from: https://github.com/chocolatey/rhino-licensing/blob/master/Rhino.Licensing/AbstractLicenseValidator.cs#L245-L252
-#Only work with Professional or FOSS licenses types, anything else I don't have so I can't test it.
-$unsupportedLicenceTypes = "Subscription","ManagedServiceProvider","Architect","Business","Enterprise","Education","Trial"
-if ($unsupportedLicenceTypes -contains $env:ChocolateyLicenseType) {
-    Throw "License type of $($env:ChocolateyLicenseType) is unsupported, exiting"
-} elseif ($env:ChocolateyLicenseType -eq "Professional") {
+$LicencedChocoTypes = "Subscription","ManagedServiceProvider","Architect","Business","Enterprise","Education","Trial","Professional"
+if ($LicencedChocoTypes -contains $env:ChocolateyLicenseType) {
     Write-Host -ForegroundColor red "____________________________________________________________"
-    Write-Host -ForegroundColor red "|   !!  NOTICE for users of Chocolatey Professional  !!    |"
+    Write-Host -ForegroundColor red "|   !!  NOTICE for users of Chocolatey Licensed  !!        |"
     Write-Host -ForegroundColor red "| By installing this package, you agree to not contact     |"
     Write-Host -ForegroundColor red "| Chocolatey private support about any issues with this    |"
     Write-Host -ForegroundColor red "| installation of Chocolatey because this modifies the     |"
