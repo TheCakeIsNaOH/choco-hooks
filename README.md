@@ -27,10 +27,19 @@ It is an implementation of [this choco feature request](https://github.com/choco
 2. Run `choco pack` in the `choco-hooks.extension` directory
 3. Run `choco install choco-hooks.extension -s .` in the `choco-hooks.extension` directory
 
-#### Install from <TODO>
+#### Install from MyGet
 
 1. Add the myget repository: `choco source add -n choco-hooks -s https://www.myget.org/F/choco-hooks/api/v2`
 2. Install: `choco install choco-hooks.extension`
+
+## Upgrading Chocolatey
+
+1. `choco uninstall choco-hooks.extension`
+2. `choco pin remove -n chocolatey`
+3. `choco upgrade chocolatey`
+4. `choco pin add -n chocolatey`
+5. `choco install choco-hooks.extension`
+
 
 ## Uninstallation
 
