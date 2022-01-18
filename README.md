@@ -34,7 +34,7 @@ It is an implementation of [this choco feature request](https://github.com/choco
 
 ## Upgrading Chocolatey
 
-1. `choco uninstall choco-hooks.extension`
+1. `choco uninstall choco-hooks.extension -f`
 2. `choco pin remove -n chocolatey`
 3. `choco upgrade chocolatey`
 4. `choco pin add -n chocolatey`
