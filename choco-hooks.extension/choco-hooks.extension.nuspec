@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>choco-hooks.extension</id>
-    <version>0.1.0.20220118</version>
+    <version>0.1.0.20220321</version>
     <packageSourceUrl>https://github.com/TheCakeIsNaOH/choco-hooks/choco-hooks</packageSourceUrl>
     <owners>TheCakeIsNaOH</owners>
     <title>(Unofficial) Choco Hooks</title>
@@ -23,7 +23,7 @@
 See the readme for more information: https://github.com/TheCakeIsNaOH/choco-hooks/blob/main/README.md</description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
     <dependencies>
-      <dependency id="chocolatey" version="0.10.15" />
+      <dependency id="chocolatey" version="0.12.0" />
     </dependencies>
   </metadata>
   <files>

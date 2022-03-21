@@ -15,7 +15,7 @@ if ($LicencedChocoTypes -contains $env:ChocolateyLicenseType) {
 }
 
 #Only support specific choco versions that have an unchanged script runner and are tested
-$supportedChocoVersions = "0.12.0.0"
+$supportedChocoVersions = "0.12.0.0","0.12.1.0","1.0.0.0"
 if ($supportedChocoVersions -notcontains $env:CHOCOLATEY_VERSION) {
     Throw "Unsupported version of Chocolatey: $($env:CHOCOLATEY_VERSION)"
 }
