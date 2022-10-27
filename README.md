@@ -1,5 +1,13 @@
 # Choco Hooks
 
+## Project Archived.
+
+Now that Hook scripts are a [built in to open source Chocolatey CLI](https://github.com/chocolatey/choco/pull/2535), there is no need for the `choco-hooks.extension`. 
+
+I'd suggest uninstalling `choco-hooks.extension`, and using the built in hook support instead. I'm moving my hook development to https://github.com/chocolatey-community/chocolatey-hooks, and discontinuing this repository.
+
+The Hook scripts that are built into Chocolatey are similar to the hook scripts I added support for here, but with a few key differences. First, the folder name is `hooks` not `choco-hooks`, and second the filename format is seperated by a dash "-", not an underscore "_", and finally, use `beforemodify` instead of `modify` and `all` instead of `any`. These should be just a few renames away from working. The Hook scripts build into Chocolatey also are able to run even if the package does not have a package automation script.
+
 ## Disclaimer
 
 This project is not associated with Chocolatey Software, Inc.
